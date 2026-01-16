@@ -1,0 +1,47 @@
+.playerContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+}
+
+.titleBar {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4rem;
+  padding: 0.75rem;
+  min-width: 0;
+  font-weight: bold;
+  font-size: 2rem;
+  z-index: 10;
+}
+
+.titleBar::before,
+.titleBar::after {
+  content: '';
+  position: absolute;
+  width: 10rem;
+  height: 10rem;
+  pointer-events: none;
+}
+
+.titleBar::before {
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.45), transparent 70%);
+}
+
+.titleBar::after {
+  top: 0;
+  right: 0;
+  background: radial-gradient(circle at top right, rgba(255,255,255,0.45), transparent 70%);
+}
+

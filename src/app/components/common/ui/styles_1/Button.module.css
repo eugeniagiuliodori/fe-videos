@@ -1,0 +1,15 @@
+
+.button:global(.MuiButton-root) {
+    color: white;
+    width: 2rem;
+    height: 3rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0;
+    transition: background-color 0.2s ease;
+}
+
+
+
+.button:global(.MuiButton-root):hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}

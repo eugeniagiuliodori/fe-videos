@@ -1,0 +1,28 @@
+
+  .root:global(.MuiOutlinedInput-input) {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+    color: white;
+  }
+
+  .root:global(.MuiOutlinedInput-notchedOutline){
+    border-color: white;
+    border-width: 0.15rem;
+    border-radius: 0.7rem;
+  }
+
+  root:hover :global(.MuiOutlinedInput-notchedOutline) {
+    border-color: white;
+  }
+
+  .root:global(.Mui-focused) :global(.MuiOutlinedInput-notchedOutline) {
+    border-color: white;
+  }
+
+  .root:global(.MuiSelect-icon) {
+    color: white;
+    left: 1.2rem;
+  }
+
+
+    
