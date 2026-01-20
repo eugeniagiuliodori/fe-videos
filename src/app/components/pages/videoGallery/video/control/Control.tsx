@@ -71,11 +71,10 @@ const Control: React.FC<PlayerProps> = ({ url, title, className = "", playerRef,
           <ButtonPlayPause  togglePlay={togglePlay} playingParent={playingParent}/>
           <Box className={styles.BoxControlTime}>{formatTime(playedSeconds)} / {formatTime(duration)}</Box>
           <SimpleCustomInput className={styles.BoxControlProgress} 
-                              slotProps={{  track: { className: styles.track },
-                                            thumb: { className: styles.thumb },
-                                            rail: { className: styles.rail }
-                              }}
-                              type="range" min={0} max={1} step={0.001}
+                              trackClassName = {styles.track }
+                              thumbClassName = {styles.thumb }
+                              railClassName =  {styles.rail }
+                              inputType="range" min={0} max={1} step={0.001}
                               value={played} onMouseDown={onSeekMouseDown} onChange={onSeekChange}
                               onMouseUp={onSeekMouseUp} aria-label="Progreso"
                               disabled={!playingParent}
@@ -88,7 +87,8 @@ const Control: React.FC<PlayerProps> = ({ url, title, className = "", playerRef,
                                       '& .MuiSlider-thumb': {width: "0.8rem", height: "0.8rem"},
                                       '& .MuiSlider-rail': {height: "2.5rem", backgroundColor:(theme) => alpha(theme.palette.common.white, 0.45)},
                                   }} 
-                              type="range" min={0} max={1} step={0.01} value={muted ? 0 : volume} 
+                              inputType="range"
+                              min={0} max={1} step={0.01} value={muted ? 0 : volume} 
                               disabled={!playingParent} onChange={onVolumeChange}  aria-label="Volumen" />
           </Box>
           <CustomSelect value={playbackRate} onChange={handlerPlaybackRate} options={[0.5, 0.75, 1, 1.25, 1.5, 2]}/>

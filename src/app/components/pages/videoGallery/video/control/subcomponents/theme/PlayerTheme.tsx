@@ -13,10 +13,10 @@ import styles from "../../Control.module.css";
 const PlayerTheme: React.FC<PlayerThemeProps> = ({ theme, setTheme }) => {
 
  const radioLabelSX = {
-  display: 'inline-flex',   // cambia de flex 100% a inline-flex
+  display: 'inline-flex',   
   flexDirection: 'row',
   alignItems: 'center',
-  width: 'auto',            // ahora sí respeta el ancho del contenido
+  width: 'auto',          
 };
   const radioInputSX = {
     width: 28,
@@ -45,7 +45,7 @@ const PlayerTheme: React.FC<PlayerThemeProps> = ({ theme, setTheme }) => {
         <FormControlLabel value="claro" label="Claro" labelPlacement="bottom" 
                 sx={{width:"50%", margin:"0", '& .MuiFormControlLabel-label': {fontSize: '0.7rem', lineHeight: 1.2}}}
                 control=
-                  {<SimpleCustomInput  type="radio" name="tema"
+                  {<SimpleCustomInput  inputType="radio" name="tema"
                       sx={{'& .MuiSvgIcon-root': {fontSize: '0.8rem'}}}
                       icon={<Box sx={{  borderRadius: "50%",color: "#ffffff", bgcolor:"#ffffff",
                                         display: "flex", alignItems: "center", justifyContent: "center",}}
@@ -61,7 +61,7 @@ const PlayerTheme: React.FC<PlayerThemeProps> = ({ theme, setTheme }) => {
               <FormControlLabel value="oscuro" label="Oscuro" labelPlacement="bottom"
                 sx={{width:"50%", margin:"0", '& .MuiFormControlLabel-label': {fontSize: '0.7rem', lineHeight: 1.2}}}
                 control=
-                  {<SimpleCustomInput  type="radio" name="tema"
+                  {<SimpleCustomInput  inputType="radio" name="tema"
                       sx={{'& .MuiSvgIcon-root': {fontSize: '0.8rem'}}}
                       icon={<Box sx={{  borderRadius: "50%",color: "#ffffff",bgcolor:"#ffffff",
                                         display: "flex", alignItems: "center", justifyContent: "center",}}

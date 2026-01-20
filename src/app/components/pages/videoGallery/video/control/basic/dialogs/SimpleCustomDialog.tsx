@@ -1,24 +1,16 @@
 import Dialog from '@/components/composed/Dialog';
-import { CustomDialogESCProps } from "@/interfaces/interfaces";
+import { CustomDialogProps } from '@/components/composed/Dialog';
 
-
-const SimpleCustomDialog: React.FC<CustomDialogESCProps> = ({open,title, children ,onAcept, className, ...rest}) => {
+const SimpleCustomDialog: React.FC<CustomDialogProps> = ({open,title, children ,onAcept, className, ...rest}) => {
   return (
     <Dialog open={open} 
             onClose={() => {}} 
             disableEscapeKeyDown  
             title={title}
             children={children}
-            slotProps={{
-              backdrop: {
-                onClick: (e: React.MouseEvent) => e.stopPropagation(),
-              },
-            }}
             onAcept={onAcept}
             {...rest}
-    >
-    
-    </Dialog>
+    />
   );
 };
 

@@ -65,11 +65,6 @@ export interface PlayerThemeProps {
     setTheme:React.Dispatch<React.SetStateAction<string>>;
 } 
 
-export interface CustomDialogESCProps extends DialogProps {
-  open: boolean;
-  title: string;
-  onAcept: ()=> void;
-}
 
 export interface SafeReactPlayerProps {
   id:number,

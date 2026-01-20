@@ -2,7 +2,8 @@ import { forwardRef } from "react";
 import {DialogActions as MUIDialogActions} from "@mui/material";
 import { DialogActionsProps as DialogActionsType } from "@mui/material";
 
-export interface DialogActionsProps extends DialogActionsType{}
+
+export type DialogActionsProps  = Omit<DialogActionsType, | 'classes'>;
  
 const DialogActions=forwardRef<HTMLDivElement, DialogActionsProps> ((props, ref) => {
     const { className,  ...rest } = props;

@@ -27,7 +27,7 @@ const Select = React.forwardRef<
   ref: React.ForwardedRef<unknown>
 )  
   {
-  const { className, options, label, onChange, value, menuSx, menuItemSx, ...rest } = props;
+  const { className, options, label, onChange, value, menuSx, menuItemSx, variant, ...rest } = props;
   const id = label ? `${label}-label` : undefined;
 
   return (
@@ -43,6 +43,7 @@ const Select = React.forwardRef<
       label={label}
       value={value}
       onChange={onChange}
+      variant={variant}
       {...rest}
     >
       {options.map((opt) => (

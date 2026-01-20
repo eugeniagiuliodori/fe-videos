@@ -3,7 +3,7 @@ import {DialogContent as MUIDialogContent} from "@mui/material";
 import { DialogContentProps as DialogContentType} from "@mui/material";
 
 
-export interface DialogContentProps extends DialogContentType{}
+export type DialogContentProps = Omit<DialogContentType, | 'classes'>;
 
 const DialogContent=forwardRef<HTMLDivElement, DialogContentProps> ((props, ref) => {
     const { className,  ...rest } = props;
@@ -11,6 +11,7 @@ const DialogContent=forwardRef<HTMLDivElement, DialogContentProps> ((props, ref)
          <MUIDialogContent 
             ref={ref}
             className={className}
+
             {...rest}
         />
     );

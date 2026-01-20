@@ -3,7 +3,7 @@ import {DialogTitle as MUIDialogTitle} from "@mui/material";
 import { DialogTitleProps as DialogTitleType } from "@mui/material";
 
 
-export interface DialogTitleProps extends DialogTitleType{}
+export type DialogTitleProps = Omit<DialogTitleType, | 'classes'>;
 
 const DialogTitle=forwardRef<HTMLDivElement, DialogTitleProps> ((props, ref) => {
     const { className, children,  ...rest } = props;

@@ -3,7 +3,9 @@ import {Typography as MUITypography} from "@mui/material";
 import { TypographyProps as TypographyType} from "@mui/material";
 
 
-    export interface TypographyProps<T = unknown> extends TypographyType {}
+    export type TypographyProps<T = unknown> = Omit<TypographyType , 'classes' | 'component' | 'paragraph' | 'variantMapping'>  ;
+    
+    
 
     type TypographyComponent = <T = unknown>(
         props: TypographyProps<T> & React.RefAttributes<HTMLElement>

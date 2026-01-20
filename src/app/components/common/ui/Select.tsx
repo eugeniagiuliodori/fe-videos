@@ -30,6 +30,7 @@ const Select = React.forwardRef<
           value={value}
           onChange={onChange} 
           options={options}
+          variant="outlined"
           {...rest}
       />
   );
