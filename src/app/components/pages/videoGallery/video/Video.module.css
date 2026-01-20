@@ -1,0 +1,10 @@
+.playerWrapper {
+  position: relative;
+  border-radius: 1rem;
+  color: white;
+  min-width: 0;
+  width: 100%;
+  max-width: 48rem;
+
+
+}

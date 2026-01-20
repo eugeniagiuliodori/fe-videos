@@ -19,7 +19,10 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+    
+      "@/components/*" : ["./src/app/components/*"],
+      "@/interfaces/*" : ["./src/types/interfaces/*"],
+      "@/*": ["./src/*"],
     }
   },
   "include": [

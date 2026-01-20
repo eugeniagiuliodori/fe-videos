@@ -1,0 +1,11 @@
+
+
+.backdrop {
+  background-image: url('/images/dialog-bg.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: white;
+}
+
+

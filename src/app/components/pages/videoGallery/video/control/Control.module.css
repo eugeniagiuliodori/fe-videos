@@ -1,0 +1,173 @@
+.fullscreenButton:global(.MuiButton-root) {
+  position:relative;
+  color: white;
+  height: 2rem; /* h-8 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
+.fullscreenIcon {
+  min-width: 0;
+  width: 2.25rem; /* w-9 */
+  height: 2.25rem; /* h-9 */
+}
+
+.muteButton.muteButton:global(.MuiButton-root) {
+  color: white;
+  min-width: 0rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem;
+}
+
+.icon {
+  width: 1.25rem; /* w-5 -> 1.25rem */
+  height: 1.25rem; /* h-5 -> 1.25rem */
+}
+
+.playPauseButton.playPauseButton:global(.MuiButton-root) {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+
+.icon {
+  width: 1.25rem; /* w-5 -> 1.25rem */
+  height: 1.25rem; /* h-5 -> 1.25rem */
+}
+
+.dialog {
+  color:red !important;
+}
+
+.dialogTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.dialogContent {
+  padding: 1rem 2rem;
+}
+
+.dialogMessage {
+  font-size: 1rem;
+  color: #374151;
+}
+
+.dialogActions {
+  padding: 0.5rem 1rem;
+  justify-content: flex-end;
+}
+
+.acceptButton {
+  background-color: #3b82f6; /* azul MUI por defecto, se puede ajustar */
+  color: white;
+}
+
+.formControl {
+  margin-left: 0.75rem; /* ml-3 */
+}
+
+.inputLabel {
+  position:  relative !important;
+  color: white !important;
+  font-size: 0.875rem !important;
+}
+
+.select {
+  font-size: 0.875rem !important;
+  padding: 0.25rem 0.5rem !important; /* px-1, py-0.5 */
+  color: white !important;
+  border-radius: 1rem !important;
+}
+
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  position: relative;
+  margin-bottom: 0.25rem; /* mb: 1 -> 0.25rem */
+  text-align: center;
+  white-space: nowrap;
+  font-size: 0.7rem;
+}
+
+.stack {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem; /* espacio entre opciones */
+}
+
+.radioLabel {
+  display: flex;       /* hace que label + control sean flexibles */
+  flex-direction: column; /* mantiene la etiqueta debajo del icono */
+  align-items: center; /* centra la etiqueta horizontalmente */
+  width: auto;         /* evita que ocupe todo el ancho */
+}
+
+.radioGroup {
+  width: 100%;
+}
+
+
+
+
+.radioInput .MuiSvgIcon-root {
+  font-size: 0.8rem;
+}
+
+.radioIconBox {
+  border-radius: 50%;
+  color: #ffffff;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.checkedIcon {
+  color: #374151;
+}
+
+.BoxControl {
+  display:flex;
+  align-items:center;
+  gap: 1.25rem;
+}
+
+.BoxControlTime{
+  position:relative;
+  width:7rem;
+  white-space: nowrap;
+}
+
+.BoxControlProgress{
+  position:relative !important;
+  color:white !important;
+  width:6rem !important;
+  height:0.25rem !important;
+  appearance: 'none' !important; 
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  border-radius:0.25rem !important;
+}
+
+.track {height: 0.18rem !important}
+.thumb {width: 0.8rem !important; height: 0.8rem !important}
+.rail  {height: 2.5rem !important; background-color:#ffffff73 !important}    
