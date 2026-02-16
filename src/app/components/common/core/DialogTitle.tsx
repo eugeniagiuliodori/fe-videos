@@ -1,22 +1,27 @@
-import { forwardRef } from "react";
 import {DialogTitle as MUIDialogTitle} from "@mui/material";
 import { DialogTitleProps as DialogTitleType } from "@mui/material";
+import { mergeSx } from "@/components/utils/utils";
+import clsx from 'clsx';
 
 
-export type DialogTitleProps = Omit<DialogTitleType, | 'classes'>;
+export type DialogTitleProps = Omit<DialogTitleType, 'ref' | 'classes'>;
 
-const DialogTitle=forwardRef<HTMLDivElement, DialogTitleProps> ((props, ref) => {
-    const { className, children,  ...rest } = props;
+const DialogTitle = 
+(props: DialogTitleProps & {ref?: React.Ref<HTMLDivElement>}) => {
+    const { className, ref, children, sx, ...rest } = props;
+    const mergedSx = mergeSx(sx);
+    const composedClassName = clsx(className);
+
     return(
          <MUIDialogTitle  
             ref={ref}
-            className={className}
+            className={composedClassName}
+            sx={mergedSx}
             {...rest}
          >
             {children}
         </MUIDialogTitle>
     );
 }
-);
 
 export default DialogTitle;

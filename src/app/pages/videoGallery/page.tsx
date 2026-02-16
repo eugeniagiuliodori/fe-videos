@@ -1,4 +1,4 @@
-import VideoGallery from "@/components/pages/videoGallery/VideoGallery";
+import VideoGallery from "@/app/pages/components/videoGallery/VideoGallery";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import styles from "./PageVideoGallery.module.css";

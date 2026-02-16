@@ -1,29 +1,37 @@
-import { forwardRef } from "react";
 import {Typography as MUITypography} from "@mui/material";
 import { TypographyProps as TypographyType} from "@mui/material";
+import type {MapVariantTag, TypeVariantTypography} from "../types/interfaces";
+import { mergeSx } from "@/components/utils/utils";
+import clsx from 'clsx';
 
-
-    export type TypographyProps<T = unknown> = Omit<TypographyType , 'classes' | 'component' | 'paragraph' | 'variantMapping'>  ;
     
+export type TypographyProps = Omit<TypographyType , 'ref' | 'variant' | 'classes' | 'component' | 'paragraph' | 'variantMapping'>  ;
     
 
-    type TypographyComponent = <T = unknown>(
-        props: TypographyProps<T> & React.RefAttributes<HTMLElement>
-        ) => React.ReactElement;
 
-  const Typography=forwardRef (function <T = unknown>(props:TypographyProps<T>, ref:React.ForwardedRef<any>) {
 
-    const { className, children, ...rest } = props;
+  const Typography = <V extends TypeVariantTypography>(
+      props: TypographyProps & {
+        variant: V;
+        ref?: React.Ref<MapVariantTag<V>>;
+      },
+      
+  ) => {
+    const { className, sx, children, ref, variant, ...rest } = props;
+    const mergedSx = mergeSx(sx); 
+    const composedClassName = clsx(className);
+
     return(
          <MUITypography 
             ref={ref}
-            className={className}
+            className={composedClassName}
+            sx={mergedSx}
+            variant={variant}
             {...rest}
         >
             {children}
         </MUITypography>
     );
-}
-) as TypographyComponent;
+  }      
 
-export default Typography;
+  export default Typography;

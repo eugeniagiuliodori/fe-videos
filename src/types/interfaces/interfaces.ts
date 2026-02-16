@@ -1,7 +1,7 @@
 import React from "react";
 import type { RefObject } from "react";
 import ReactPlayer from "react-player";
-import { DialogProps } from "@mui/material";
+import { SxProps, Theme } from '@mui/material/styles';
 
 export interface PlayerProps {
   id:number,

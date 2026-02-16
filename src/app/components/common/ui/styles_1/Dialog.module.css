@@ -1,11 +1,16 @@
 
 
 .backdrop {
-  background-image: url('/images/dialog-bg.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: white;
+  --bk-bg-im: url('/images/dialog-bg.jpeg');
+  --bk-bg-size:cover;
+  --bk-bg-pos: center;
+  --bk-bg-repeat: no-repeat;
+  --bk-bg-color: white;
+  background-image: var(--bk-bg-im);
+  background-size: var(--bk-bg-size);
+  background-position: var(--bk-bg-pos);
+  background-repeat: var(--bk-bg-repeat);
+  background-color: var(--bk-bg-color);
 }
 
 

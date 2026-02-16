@@ -5,27 +5,31 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { redirect } from "next/navigation";
 import styles from "./PageHome.module.css";
+import {DEFAULT_IDENTITY} from "@/interfaces/styles"
+
 
 export default function Home() {
   return (
-    <Container component="main" className={styles.main}>
-      <Typography variant="h1" component="h1" className={styles.title}>
-        🎥 UN ESPACIO MUSICAL
-      </Typography>
-      <Box className={styles.buttonContainer}>
-        <Button
-          onClick={() => redirect("/pages/playlists")}
-          className={styles.redButton}
-        >
-          <Typography>MIS PLAYLISTS</Typography>
-        </Button>
-        <Button
-          onClick={() => redirect("/pages/videoGallery")}
-          className={styles.redButton}
-        >
-          <Typography>REPRODUCIR</Typography>
-        </Button>
-      </Box>
+
+    <Container component="main" className={styles.main}  data-brand={DEFAULT_IDENTITY.brand} data-theme={DEFAULT_IDENTITY.theme}>
+          <Typography variant="h1" component="h1" className={styles.title}>
+            🎥 UN ESPACIO MUSICAL
+          </Typography>
+          <Box className={styles.buttonContainer}>
+            <Button
+              onClick={() => redirect("/pages/playlists")}
+              className={styles.redButton}
+            >
+              <Typography>MIS PLAYLISTS</Typography>
+            </Button>
+            <Button
+              onClick={() => redirect("/pages/videoGallery")}
+              className={styles.redButton}
+            >
+              <Typography>REPRODUCIR</Typography>
+            </Button>
+          </Box>
     </Container>
+   
   );
 }

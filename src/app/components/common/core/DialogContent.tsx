@@ -1,22 +1,27 @@
-import { forwardRef } from "react";
 import {DialogContent as MUIDialogContent} from "@mui/material";
 import { DialogContentProps as DialogContentType} from "@mui/material";
+import { mergeSx } from "@/components/utils/utils";
+import clsx from 'clsx';
+
+export type DialogContentProps = Omit<DialogContentType, 'ref' | 'classes'>;
+
+const DialogContent = 
+(props: DialogContentProps & {ref?: React.Ref<HTMLDivElement>}) => {
+    const { className, ref, sx, ...rest } = props;
+    const mergedSx = mergeSx(sx);
+    const composedClassName = clsx(className);
 
 
-export type DialogContentProps = Omit<DialogContentType, | 'classes'>;
-
-const DialogContent=forwardRef<HTMLDivElement, DialogContentProps> ((props, ref) => {
-    const { className,  ...rest } = props;
     return(
          <MUIDialogContent 
             ref={ref}
-            className={className}
-
+            className={composedClassName}
+            sx={mergedSx}
             {...rest}
         />
     );
 
 }
-);
+
 
 export default DialogContent;

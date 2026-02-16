@@ -2,6 +2,8 @@ import { forwardRef } from "react";
 import {Dialog as MUIDialog} from "@mui/material";
 import { DialogProps as DialogType } from "@mui/material";
 import { SxProps, Theme } from '@mui/material/styles';
+import { mergeSx } from "@/components/utils/utils";
+import clsx from 'clsx';
 
 export type DialogProps = Omit<
   DialogType,
@@ -10,30 +12,36 @@ export type DialogProps = Omit<
   | 'PaperProps'
   | 'slots'
   | 'slotProps'
-  | 'sx'
+  | 'ref'
 > & {
   paperSx?: SxProps<Theme>;
   backdropSx?: SxProps<Theme>;
 };
 
-const Dialog=forwardRef<HTMLDivElement, DialogProps> ((props, ref) => {
-    const { className, children, title,open, backdropSx, paperSx,...rest } = props;
+const Dialog = 
+(props: DialogProps & {ref?: React.Ref<HTMLDivElement>}) => {
+    const { className, ref, children, title,open, backdropSx, sx, paperSx,...rest } = props;
+    const mergedSx = mergeSx(sx);
+    const mergedBackdropSx = mergeSx(backdropSx);
+    const mergedPaperSx = mergeSx(paperSx);
+    const composedClassName = clsx(className);
 
     return (
     <MUIDialog 
             ref={ref}
-            className={className}
+            className={composedClassName}
             open={open} 
             onClose={() => {}} 
             disableEscapeKeyDown  
             title={title}
             children={children}
+            sx={mergedSx}
             slotProps={{
               paper: {
-                sx: paperSx,
+                sx: mergedPaperSx,
               },
               backdrop: {
-                sx: backdropSx,
+                sx: mergedBackdropSx,
                 onClick: (e: React.MouseEvent) => {e.stopPropagation()},
               },
             }}
@@ -43,5 +51,4 @@ const Dialog=forwardRef<HTMLDivElement, DialogProps> ((props, ref) => {
   
   );
 }
-);
 export default Dialog;

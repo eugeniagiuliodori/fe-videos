@@ -1,0 +1,58 @@
+
+:global(.MuiOutlinedInput-root),
+:global(.MuiFilledInput-root),
+:global(.MuiInput-root){
+  position: relative;
+  overflow: hidden;
+}
+
+:global(.MuiSlider-root) {
+  position: relative;
+}
+
+:global(.MuiOutlinedInput-root)::after,
+:global(.MuiFilledInput-root)::after,
+:global(.MuiInput-root)::after,
+:global(.MuiSlider-root)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: rgba(0,0,0,0);
+  transition: background-color 180ms ease;
+  pointer-events: none;
+
+}
+
+/* Hover intensities por variante */
+:global(.MuiOutlinedInput-root):hover::after {
+  --outlinedInput-bg-c-hov-aft: rgba(0,0,0,0.05)
+  background-color: var(--input-bg-c-hov-aft);
+}
+
+:global(.MuiFilledInput-root):hover::after {
+  --filledInput-bg-c-hov-aft: rgba(0,0,0,0.07);
+  background-color: var(--filledInput-bg-c-hov-aft);
+}
+
+:global(.MuiInput-root):hover::after {
+  --input-bg-c-hov-aft: rgba(0,0,0,0.03);
+  background-color: var(--input-bg-c-hov-aft);
+}
+
+:global(.MuiSlider-root)::after { 
+
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-color: rgba(0,0,0,0);
+  transition: background-color 180ms ease;
+  display: block;     
+  z-index: 1; 
+}
+
+:global(.MuiSlider-root):hover::after {
+  --slider-bg-c-hov-aft: rgba(0,0,0,0.05);
+  background-color: var(--slider-bg-c-hov-aft);
+}

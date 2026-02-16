@@ -1,0 +1,19 @@
+.innerLayoutButtonCustom {
+  display: flex;
+  justify-content: var(--btn-justify-content, center);
+  align-items: var(--btn-align-items, center);
+  flex-direction: var(--btn-flex-direction, row);
+}
+
+          
+.innerLayoutButtonDefault {        
+  display:flex;
+  --btn-justify-content: center;
+  --btn-align-item: center;
+  --btn-flex-direction: row;
+    justify-content: var(--btn-justify-content);
+  align-items: var(--btn-align-items);
+  flex-direction: var(--btn-flex-direction);
+}
+
+          

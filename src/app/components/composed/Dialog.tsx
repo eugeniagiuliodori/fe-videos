@@ -24,15 +24,12 @@ export const dialogTypographyStyles = {
 };
 
 const CustomDialog: React.FC<CustomDialogProps> = ({open,onAcept,children, title, className, paperSx, backdropSx,...rest}) => {
-  const composedClassName = clsx(
-                              /*styles.dialog,*/
-                              className
-                            );
+  const composedClassName = clsx(className);
   return (
     <Dialog open={open} className={composedClassName} paperSx={paperSx} backdropSx={backdropSx} {...rest}>
       <DialogTitle  className={styles.dialogTitle} sx={dialogTitleStyles}>{title}</DialogTitle>
       <DialogContent className={styles.dialogContent}  >
-        <Typography sx={dialogTypographyStyles}>{children}</Typography>
+        <Typography variant="h6" sx={dialogTypographyStyles}>{children}</Typography>
       </DialogContent>
       <DialogActions>
         <Button className={styles.acceptButton} onClick={onAcept} variant="contained" autoFocus>
