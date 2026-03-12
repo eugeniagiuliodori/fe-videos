@@ -3,7 +3,7 @@
 import { useState } from "react";
 import SafeReactPlayer from "@/app/pages/components/videoGallery/video/Video";
 import Box from "@mui/material/Box";
-import styles from "./VideoGallery.module.css";
+import styles from "./video-gallery.module.css";
 
 const basic_videos = [
   { id: 1, title: "Rosalía - Sexo, Violencia y Llantas", videId: "m6z1sW_qtyg" },
@@ -41,7 +41,7 @@ export default function VideoGallery() {
   return (
     <Box className={styles.galleryWrapper}>
       {videos.map((video) => (
-        <Box key={video.url} className={styles.videoContainer}>
+        <Box key={video.url} className={styles.videoContainer}  >
           <SafeReactPlayer
             url={video.url}
             title={video.title}

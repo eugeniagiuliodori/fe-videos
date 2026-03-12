@@ -1,8 +1,8 @@
 import CircularProgress from '@mui/material/CircularProgress';
 import BaseButton, {ButtonProps} from "@/components/common/core/Button";
-import styles from './styles_1/Button.module.css';
+import muiStyles from './styles/Button/mui.module.css';
+import styles from './styles/Button/button.module.css';
 import clsx from 'clsx';
-import {AlignMain, AlignCross, AlignDirection } from '../types/interfaces';
 import { mergeSx } from "@/components/utils/utils";
 
 
@@ -11,7 +11,7 @@ const Button =
   const { className, ref, children, loading, loadingIndicator, mainAxis, crossAxis, directionFlex, sx,...rest } = props;
   
   const mergedSx = mergeSx(sx);
-  const composedClassName = clsx(styles.button, loading && styles.buttonOnLoad, className, styles.button_fixedStyle);
+  const composedClassName = clsx(muiStyles.pmuiButton, loading && muiStyles.pmuiButtonOnLoad, className, muiStyles.pmuiButton_fixedStyle);
     /*otra forma sintácticamente válida:
     clsx(styles.button, { [styles.buttonOnLoad]: loading }, className);*/
 
@@ -27,7 +27,7 @@ const Button =
       disabled={loading ? loading : false}
       aria-busy={loading == null ? undefined : loading ? "true" : "false"}
       loadingIndicator={  
-          <span className={styles.loaderWrapper}>
+          <span className={styles.loaderWrapperLoaderWrapper}>
             {loadingIndicator??<CircularProgress/>}
           </span>
       }

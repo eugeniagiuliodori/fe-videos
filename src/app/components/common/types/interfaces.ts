@@ -1,7 +1,7 @@
 import type { RadioProps } from "@mui/material/Radio";
 import type { SliderProps } from "@mui/material/Slider";
 import type { TextFieldProps } from "@mui/material/TextField";
-import { TypographyProps} from "@mui/material";
+import { SxProps, Theme, TypographyProps} from "@mui/material";
 
 
 type RadioType = string | number;
@@ -67,9 +67,12 @@ export type RangeProps = {
   value?: SliderProps["value"];
   defaultValue?: SliderProps["defaultValue"];
   disabled?: SliderProps["disabled"];
-  trackClassName?: string;
-  thumbClassName?: string;
-  railClassName?: string;
+  trackClassName?: string ;
+  thumbClassName?: string ;
+  railClassName?: string ;
+  trackSx?: SxProps<Theme> ;
+  thumbSx?: SxProps<Theme> ;
+  railSx?: SxProps<Theme> ;
   ref?: React.Ref<InputTypeToRef["range"]>;
 } & Omit<
   SliderProps,
@@ -122,7 +125,6 @@ export type TypedInputComponent = <T extends TypedInputProps["inputType"]>(
 ) => React.ReactElement | null;
 
 
-
 export const mapTypography = {
   h1: 'h1',
   h2: 'h2',
@@ -134,7 +136,8 @@ export const mapTypography = {
   subtitle2: 'h6',
   body1: 'p',
   body2: 'p',
-  inherit: 'p'
+  inherit: 'p',
+  overline:'span'
 } as const
 
 type TypeMapTypography = typeof mapTypography
@@ -142,7 +145,7 @@ type TypeMapTypography = typeof mapTypography
 export type TypeVariantTypography = keyof typeof mapTypography;
 
 export type MapVariantTag<V extends TypeVariantTypography> =
-  HTMLElementTagNameMap[TypeMapTypography [V]]
+  HTMLElementTagNameMap[TypeMapTypography[V]]
 
 /*Este type genera la unión de variantes
 type Variant = keyof typeof VariantElementMapTypography;

@@ -1,10 +1,18 @@
 "use client";
 import React from "react";
 import ReactPlayer from "react-player";
-import { VideoPlayerProps } from "@/interfaces/interfaces";
+import { VideoPlayerProps } from "@/types/interfaces";
 import Box from "@mui/material/Box";
-import styles from "./Player.module.css";
+import muiStyles from "./styles/mui.module.css";
+import styles from "./styles/player.module.css";
 import { BGBoxTheme } from "@/app/utils/utils";
+import { BGCornerGlowBoxTheme } from "@/app/utils/utils";
+import clsx from 'clsx';
+import { ThemedBox } from "@/pages/components/videoGallery/video/control/components/Box/ThemedBox";
+import { useContext } from 'react';
+import { ThemeContext } from '@/app/ThemeProviderWrapper';
+
+
 
 const VideoPlayer: React.FC<VideoPlayerProps> = ({
   url,
@@ -38,9 +46,17 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
     }
   };
 
+    const composedClassName = clsx(muiStyles,
+                                 styles);
+
+
+    const { activeTheme } = useContext(ThemeContext);
+
   return (
-    <Box sx={ BGBoxTheme(theme)} className={styles.playerContainer}  >
-      <Box className={styles.titleBar}> {title} </Box>
+     <ThemedBox
+      className={composedClassName} sx={{height:"80%"}}>
+    <ThemedBox /*sx={ BGBoxTheme(theme)}*/ className={muiStyles.playerContainer } sx={BGCornerGlowBoxTheme(activeTheme.tokens)}  >
+      <ThemedBox  className={ clsx(muiStyles.titleBar, styles.titleBar)}  > {title} </ThemedBox>
       <ReactPlayer
         ref={playerRef}
         url={url}
@@ -73,7 +89,8 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
           },
         }}
       />
-    </Box>
+    </ThemedBox>
+    </ThemedBox>
   );
 };
 

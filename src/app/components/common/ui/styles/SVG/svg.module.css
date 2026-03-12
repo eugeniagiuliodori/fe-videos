@@ -1,0 +1,13 @@
+
+
+    .pmuiSVGSize{
+        --pmuisvg-min-width:var(--pmui-svg-minWidth);
+        --pmuisvg-icon-width: var(--pmui-svg-width);
+        --pmuisvg-icon-height: var(--pmui-svg-height);
+        --pmuisvg-color:var(--pmui-color-white);
+        width: var(--pmuisvg-icon-width);
+        height: var(--pmuisvg-icon-height);
+        min-width: var(--pmuisvg-min-width);
+        color: var(--pmuisvg-color);
+   
+    }

@@ -17,7 +17,9 @@ export type TypographyProps = Omit<TypographyType , 'ref' | 'variant' | 'classes
       },
       
   ) => {
-    const { className, sx, children, ref, variant, ...rest } = props;
+    const { className, sx, children, ref, variant, 
+            onMouseEnter, onMouseLeave, onMouseDown, onMouseUp, onFocus, onBlur,
+            ...rest } = props;
     const mergedSx = mergeSx(sx); 
     const composedClassName = clsx(className);
 
@@ -27,6 +29,20 @@ export type TypographyProps = Omit<TypographyType , 'ref' | 'variant' | 'classes
             className={composedClassName}
             sx={mergedSx}
             variant={variant}
+            /*-- PARA EL REFACTOR CON DEFINICIONES DE STATES Y GLOBAL STATES.
+            PARA CADA EVENTO EN ÚLTIMO ORDEN, INVOCAR SU CORRESPONDIENTE PROPAGADO 
+            DESDE PROPS
+            --*/
+            /* hover */
+            onMouseEnter={()=>{}}
+            onMouseLeave={()=>{}}
+            /* focus */
+            onFocus={()=>{}}
+            onBlur={()=>{}}
+            /* active */
+            onMouseUp={()=>{}}
+            onMouseDown={()=>{}}
+            /*--                                                             --*/
             {...rest}
         >
             {children}

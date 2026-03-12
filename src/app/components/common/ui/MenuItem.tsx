@@ -4,24 +4,24 @@ import { mergeSx } from "@/components/utils/utils";
 import clsx from 'clsx';
 
 
-    const MenuItem = <T extends MenuItemProps>
-    (props: MenuItemProps<T> & {ref?: React.Ref<HTMLButtonElement>}) => 
-      {
-    const { className, sx, ref, children,  ...rest } = props; 
+    const MenuItem = <T,>(
+  props: MenuItemProps<T> & { ref?: React.Ref<HTMLLIElement> }
+) => {
+  const { className, sx, ref, children, ...rest } = props;
 
-    const mergedSx = mergeSx(sx);
-    const composedClassName = clsx(className);
+  const mergedSx = mergeSx(sx);
+  const composedClassName = clsx(className);
 
-    return(
-         <BaseMenuItem  
-            ref={ref}
-            className={composedClassName}
-            sx={mergedSx}
-            {...rest}
-         >
-            {children}
-        </BaseMenuItem>
-    );
+  return (
+    <BaseMenuItem
+      ref={ref}
+      className={composedClassName}
+      sx={mergedSx}
+      {...rest}
+    >
+      {children}
+    </BaseMenuItem>
+  );
 }
 
 export default MenuItem;

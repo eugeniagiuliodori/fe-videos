@@ -62,6 +62,17 @@ const Button =
       loadingIndicator={loadingIndicator}
       disabled={disabled}
       aria-busy={ariaBusy}
+      /*-- PARA EL REFACTOR CON DEFINICIONES DE STATES Y GLOBAL STATES --*/
+      /* hover */
+      onMouseEnter={()=>{}}
+      onMouseLeave={()=>{}}
+      /* focus */
+      onFocus={()=>{}}
+      onBlur={()=>{}}
+      /* active */
+      onMouseUp={()=>{}}
+      onMouseDown={()=>{}}
+      /*--                                                             --*/
 
       {...rest}
       >
@@ -78,9 +89,9 @@ const Button =
                       
               }
               style={{
-                ['--btn-justify-content' as TypeAlignMainAxis]: mapAlignMainAxis(mainAxis),
-                ['--btn-align-items' as TypeAlignCrossAxis]: mapAlignCrossAxis(crossAxis),
-                ['--btn-flex-direction' as any]: directionFlex,
+                ['--pmuibtn-justify-content' as TypeAlignMainAxis]: mapAlignMainAxis(mainAxis),
+                ['--pmuibtn-align-items' as TypeAlignCrossAxis]: mapAlignCrossAxis(crossAxis),
+                ['--pmuibtn-flex-direction' as any]: directionFlex,
               }}
         > 
           {children}

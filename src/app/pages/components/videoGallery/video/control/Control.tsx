@@ -1,5 +1,5 @@
 import React, { useRef, useState} from "react";
-import { PlayerProps } from "@/interfaces/interfaces";
+import { PlayerProps } from "@/types/interfaces";
 import ButtonPlayPause from   "@/components/composed/ButtonPlayPause";
 import ButtonMute from "@/components/composed/ButtonMute";
 import ButtonFullScreen from "@/components/composed/ButtonFullScreen";
@@ -8,18 +8,25 @@ import Box from "@mui/material/Box";
 import Select from "@/components/common/ui/Select";
 import FormOption from "./components/Form/FormOptionTheme";
 import Dialog from "@/components/composed/Dialog";
-import { OptionValue } from "@/interfaces/interfaces";
-import styles from "./Control.module.css";
+import { OptionValue } from "@/types/interfaces";
+import muiStyles from "./styles/mui.module.css";
+import styles from "./styles/control.module.css";
 import type { SelectChangeEvent } from "@mui/material";
-import { PlaybackRateMn, PlaybackRateMnItem } from "@/pages/Themes";
 import IconMusic from '@mui/icons-material/LibraryMusic';
 import  {playbackRatesOptions} from "@/pages/components/videoGallery/video/control/components/utils/utils";
 import { BGCornerGlowBoxTheme } from "@/app/utils/utils";
 import clsx from 'clsx';
+import { PlaybackRateMn } from '@/app/styles/Themes';
+import { ThemedBox } from "@/pages/components/videoGallery/video/control/components/Box/ThemedBox";
+import { useContext } from 'react';
+import { ThemeContext } from '@/app/ThemeProviderWrapper';
+
 
 const Control: React.FC<PlayerProps> = ({ className = "", playerRef,ref, setPlayingParent, playingParent, duration, setSeeking, theme, setTheme, played, playedSeconds, setPlayed, setPlayedSeconds, muted, volume, setMuted, setVolume,id, setCurrentID, playbackRate, setPlaybackRate}) => {
 
 
+
+  const { activeTheme } = useContext(ThemeContext);
 
 
 
@@ -42,17 +49,19 @@ const Control: React.FC<PlayerProps> = ({ className = "", playerRef,ref, setPlay
     setVolume(v);
     setMuted(v === 0);
   };
-  const toggleFullscreen = () => {
-    setOpenAlert(true);
-  };
 
-  const fullScreenAcept = () => {
-    const el = ref.current;
-    if (!el) return;
-    if (!document.fullscreenElement) {
-      setOpenAlert(false);
-      el.requestFullscreen();
-    }
+
+  const toggleFullscreen = () => {
+     const el = ref.current;
+  if (!el) return;
+
+  if (!document.fullscreenElement) {
+    // entrar en fullscreen
+    el.requestFullscreen();
+  } else {
+    // salir de fullscreen
+    document.exitFullscreen();
+  }
   }
 
   const togglePlay = () => {setPlayingParent((p:boolean) => !p);!playingParent ? setCurrentID(id) : setCurrentID(0) };
@@ -76,14 +85,16 @@ const Control: React.FC<PlayerProps> = ({ className = "", playerRef,ref, setPlay
        return label;
     }
 
+     const composedMainClassName = clsx(muiStyles, styles.ContainerControl);
+
   return (
   
-      <Box ref={containerRef} className={styles.ContainerControl} >
-        <Box  className={composedClassName(className)} sx={BGCornerGlowBoxTheme(theme)}>
-          <Box className={styles.BoxControl}>
-            <ButtonPlayPause  togglePlay={togglePlay} playingParent={playingParent}/>
+      <ThemedBox ref={containerRef} className={composedMainClassName} >
+        <ThemedBox  className={composedClassName(className)} sx={BGCornerGlowBoxTheme(activeTheme.tokens)}>
+          <ThemedBox className={styles.BoxControl}>
+            <ButtonPlayPause disabled={false} togglePlay={togglePlay} playingParent={playingParent}/>
             <Box className={styles.BoxControlTime}>{formatTime(playedSeconds)} / {formatTime(duration)}</Box>
-            <Box component="span" className={styles.WrapperControlProgress}>
+            <ThemedBox component="span" className={styles.WrapperControlProgress}>
                 <Input  className={ styles.BoxControlProgress} 
                         trackClassName = {styles.BoxControlProgressTrack }
                         thumbClassName = {styles.BoxControlProgressThumb }
@@ -93,12 +104,12 @@ const Control: React.FC<PlayerProps> = ({ className = "", playerRef,ref, setPlay
                         onMouseUp={onSeekMouseUp} aria-label="Progreso"
                         disabled={!playingParent}
                 />
-            </Box>
-            <Box className={styles.ContainerVolume}>
-              <ButtonMute  volume={volume} muted={muted} toggleMute={toggleMute}/>
-              <Box component="span" className={styles.WrapperControlVolumen}>
+            </ThemedBox>
+            <ThemedBox className={styles.ContainerVolume}>
+              <ButtonMute  disabled={!playingParent} volume={volume} muted={muted} toggleMute={toggleMute}/>
+              <ThemedBox component="span" className={styles.WrapperControlVolumen}>
                   <Input
-                        className={styles.BoxControlVolume}
+                        className={styles.BoxControlVolumen}
                         trackClassName = {styles.BoxControlVolumeTrack }
                         thumbClassName = {styles.BoxControlVolumeThumb }
                         railClassName =  {styles.BoxControlVolumeRail }
@@ -107,24 +118,17 @@ const Control: React.FC<PlayerProps> = ({ className = "", playerRef,ref, setPlay
                         onChange={onVolumeChange}  aria-label="Volumen"
                         disabled={!playingParent}   
                     />
-                </Box>
-            </Box>
-              <Select value={playbackRate} className={styles.Playbackrate} 
-                            onChange={handlerPlaybackRate} icons={[{label:getLabel(playbackRate),icon:IconMusic}]} options={playbackRatesOptions} 
-                            menuSx={PlaybackRateMn}  menuItemSx={PlaybackRateMnItem}
-              />
-       
-            <ButtonFullScreen toggleFullscreen={toggleFullscreen}/>
+                </ThemedBox>
+            </ThemedBox>
+            <Select value={playbackRate} className={styles.Playbackrate} 
+                          onChange={handlerPlaybackRate} icons={[{label:getLabel(playbackRate),icon:IconMusic}]} options={playbackRatesOptions} 
+                          menuSx={PlaybackRateMn}  /*menuItemSx={PlaybackRateMnItem}*/
+            />
+            <ButtonFullScreen  disabled={false} toggleFullscreen={toggleFullscreen}/>
             <FormOption theme={theme} setTheme={setTheme}/>
-        </Box>
-      </Box>
-      <Dialog
-        open={openAlert}
-        title="¡IMPORTANTE!"
-        children="PRESIONE LA TECLA 'ESC' PARA SALIR DE PANTALLA COMPLETA"
-        onAcept={fullScreenAcept}
-      />
-    </Box>
+        </ThemedBox>
+      </ThemedBox>
+    </ThemedBox>
 
   );
 };

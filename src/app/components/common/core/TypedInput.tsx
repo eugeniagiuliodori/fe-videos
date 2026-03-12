@@ -44,13 +44,16 @@ const TypedInput = <T extends TypedInputProps["inputType"]>
    switch (props.inputType) {
           case "range":{
               const { className, sx, onChange, value, defaultValue, disabled, onChangeCommitted,
-                      trackClassName, thumbClassName, railClassName, inputType, ref,...rest } = props as RangeProps;
+                      trackClassName, thumbClassName, railClassName,
+                      trackSx, thumbSx, railSx, inputType, ref,
+                      onMouseEnter, onMouseLeave, onMouseDown, onMouseUp, onFocus, onBlur,
+                      ...rest } = props as RangeProps;
 
               const mySlotProps = (trackClassName || thumbClassName || railClassName)
                 ? {
-                    track: trackClassName ? {className : trackClassName} : undefined,
-                    thumb: thumbClassName ? { className: thumbClassName } : undefined,
-                    rail: railClassName ? { className: railClassName } : undefined,
+                    track: trackClassName ? {className: trackClassName, sx : trackSx} : undefined,
+                    thumb: thumbClassName ? {className: thumbClassName, sx: thumbSx } : undefined,
+                    rail: railClassName ? { className: railClassName, sx: railSx } : undefined,
                   }
                 : undefined;
 
@@ -73,13 +76,26 @@ const TypedInput = <T extends TypedInputProps["inputType"]>
                           onChangeCommitted?.(event, value);
                         }}
                         slotProps={mySlotProps}
+                        /*-- PARA EL REFACTOR CON DEFINICIONES DE STATES Y GLOBAL STATES --*/
+                        /* hover */
+                        onMouseEnter={()=>{}}
+                        onMouseLeave={()=>{}}
+                        /* focus */
+                        onFocus={()=>{}}
+                        onBlur={()=>{}}
+                        /* active */
+                        onMouseUp={()=>{}}
+                        onMouseDown={()=>{}}
+                        /*--                                                             --*/
                       />;
           }
 
           case "text":
           case "password":
           case "number":{
-              const {className, sx, type, inputType, ref, onChange, value, defaultValue, disabled,...rest } = props as TextLikeProps;
+              const { className, sx, type, inputType, ref, onChange, value, defaultValue, disabled,
+                      onMouseEnter, onMouseLeave, onMouseDown, onMouseUp, onFocus, onBlur,
+                      ...rest } = props as TextLikeProps;
               const mergedSx = mergeSx(sx); 
               const composedClassName = clsx(className); 
               
@@ -95,10 +111,23 @@ const TypedInput = <T extends TypedInputProps["inputType"]>
                         onChange={(event) => {
                           onChange?.(event);
                         }}
+                        /*-- PARA EL REFACTOR CON DEFINICIONES DE STATES Y GLOBAL STATES --*/
+                        /* hover */
+                        onMouseEnter={()=>{}}
+                        onMouseLeave={()=>{}}
+                        /* focus */
+                        onFocus={()=>{}}
+                        onBlur={()=>{}}
+                        /* active */
+                        onMouseUp={()=>{}}
+                        onMouseDown={()=>{}}
+                        /*--                                                             --*/
                       />;
           }
           case "radio":{
-              const {className, sx, inputType, ref, onChange, value, checkedIcon, checked, icon,...rest } = props as RadioInputProps;
+              const { className, sx, inputType, ref, onChange, value, checkedIcon, checked, icon,
+                      onMouseEnter, onMouseLeave, onMouseDown, onMouseUp, onFocus, onBlur,
+                      ...rest } = props as RadioInputProps;
               const mergedSx = mergeSx(sx);  
               const composedClassName = clsx(className);
               
@@ -114,6 +143,20 @@ const TypedInput = <T extends TypedInputProps["inputType"]>
                         onChange={(event, checked) => {
                           onChange?.(event, checked);
                         }}
+                        /*-- PARA EL REFACTOR CON DEFINICIONES DE STATES Y GLOBAL STATES.
+                        PARA CADA EVENTO EN ÚLTIMO ORDEN, INVOCAR SU CORRESPONDIENTE PROPAGADO 
+                        DESDE PROPS
+                        --*/
+                        /* hover */
+                        onMouseEnter={()=>{}}
+                        onMouseLeave={()=>{}}
+                        /* focus */
+                        onFocus={()=>{}}
+                        onBlur={()=>{}}
+                        /* active */
+                        onMouseUp={()=>{}}
+                        onMouseDown={()=>{}}
+                        /*--                                                             --*/
                       />;
           }
           default:

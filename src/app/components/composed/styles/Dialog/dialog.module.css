@@ -1,0 +1,16 @@
+
+.pmuidialogTitle{
+    --pmuidialogTile-color:darkred;
+    --pmuidialogTitle-txtAlign:center;
+    color:var(--pmuidialogTitle-color);
+    text-align: var(--pmuidialogTitle-txtAlign);
+}
+
+
+.pmuidialogContent{
+    --pmuidialogContent-color:black;
+    --pmuidialogContent-txtAlign:center;
+    color:var(--pmuidialogContent-color);
+    text-align: var(--pmuidialogContent-txtAlign);
+}
+

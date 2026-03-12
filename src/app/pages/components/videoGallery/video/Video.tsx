@@ -3,9 +3,9 @@
 import React, { useRef, useState, useEffect } from "react";
 import Player from "@/app/pages/components/videoGallery/video/player/Player";
 import Control from "./control/Control";
-import { SafeReactPlayerProps, OptionValue } from "@/interfaces/interfaces";
+import { SafeReactPlayerProps, OptionValue } from "@/types/interfaces";
 import Box from "@mui/material/Box";
-import styles from "./Video.module.css";
+import styles from "./video.module.css";
 
 const SafeReactPlayer: React.FC<SafeReactPlayerProps> = ({
   url,
@@ -13,12 +13,13 @@ const SafeReactPlayer: React.FC<SafeReactPlayerProps> = ({
   id,
   currentID,
   setCurrentID,
+
   ...rest
 }) => {
   const [_playing, setPlaying] = useState(false);
   const [mounted, setMounted] = useState(false);
   const playerRef = useRef<any>(null);
-  const [theme, setTheme] = useState("youtubered");
+  const [theme, setTheme] = useState("default-ligth");
   const [duration, setDuration] = useState<number>(0);
   const [seeking, setSeeking] = useState<boolean>(false);
   const [played, setPlayed] = useState<number>(0);
@@ -37,8 +38,12 @@ const SafeReactPlayer: React.FC<SafeReactPlayerProps> = ({
 
   const videoUrl = Array.isArray(url) ? url[0] : url ?? "";
 
+
+
   return (
-    <Box ref={ref} className={styles.playerWrapper}>
+    <Box ref={ref} className={styles.playerWrapper}  
+
+    >
       <Player
         url={videoUrl}
         playerRef={playerRef}
@@ -55,6 +60,7 @@ const SafeReactPlayer: React.FC<SafeReactPlayerProps> = ({
         id={id}
         setCurrentID={setCurrentID}
         playbackRate={playbackRate as number}
+      
       />
       <Control
         url={videoUrl}

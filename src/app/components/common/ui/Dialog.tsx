@@ -1,9 +1,9 @@
 import BaseDialog from "@/components/common/core/Dialog";
 import { DialogProps } from "@/components/common/core/Dialog";
-import styles from './styles_1/Dialog.module.css';
+import styles from './styles/Dialog/dialog.module.css';
 import { mergeSx } from "@/components/utils/utils";
 import clsx from 'clsx';
-import { WidthFull } from "@mui/icons-material";
+
 
 
 const Dialog = 

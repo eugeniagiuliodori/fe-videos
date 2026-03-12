@@ -1,0 +1,16 @@
+
+  .backdrop {
+    --pmuibk-bg-im: var(--pmui-surface-bgimage);
+    --pmuibk-bg-size:var(--pmui-surface-bgsize);
+    --pmuibk-bg-pos: var(--pmui-surface-bgpos);
+    --pmuibk-bg-repeat: var(--pmui-surface-bgrepeat);
+    background-image: var(--pmuibk-bg-im);
+    background-size: var(--pmuibk-bg-size);
+    background-position: var(--pmuibk-bg-pos);
+    background-repeat: var(--pmuibk-bg-repeat);
+  }
+
+
+
+
+

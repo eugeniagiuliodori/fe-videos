@@ -1,7 +1,7 @@
 import BaseDialogActions from "@/components/common/core/DialogActions";
 import { DialogActionsProps } from "@/components/common/core/DialogActions";
 import { mergeSx } from "@/components/utils/utils";
-import styles from './styles_1/DialogActions.module.css';
+import styles from './styles/DialogActions/mui.module.css';
 import clsx from 'clsx';
 
  

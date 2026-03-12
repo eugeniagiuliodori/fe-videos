@@ -1,0 +1,6 @@
+.pmuiacceptButton:global(.MuiButton-root) {
+    --pmuibtn-bg-color: darkred;
+    --pmuibtn-width:5rem;
+    --pmuibtn-min-width:5rem;
+    --pmuibtn-height:2rem;
+}

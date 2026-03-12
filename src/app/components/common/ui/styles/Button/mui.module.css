@@ -1,0 +1,73 @@
+
+
+  .pmuiButton:global(.MuiButton-root) {
+  
+      --pmuibtn-width:var(--pmui-dsc-width);
+      --pmuibtn-min-width:var(--pmui-dsc-minWidth);
+      --pmuibtn-max-width:var(--pmui-dsc-maxWidth);
+      --pmuibtn-height:var(--pmui-dsc-height);
+      --pmuibtn-min-height:var(--pmui-dsc-minHeight);
+      --pmuibtn-max-height:var(--pmui-dsc-maxHeight);
+      --pmuibtn-bg-color: var(--pmui-palette-primary-main);
+      --pmuibtn-padding:var(--pmui-dsc-padding);
+      --pmuibtn-border-color : var(--pmui-dsc-borderColor);
+      --pmuibtn-border-width : var(--pmui-dsc-borderWidth);
+      --pmuibtn-border-style : var(--pmui-dsc-borderStyle);
+      color: var(--pmuibtn-color);
+      width: var(--pmuibtn-width);
+      min-width: var(--pmuibtn-min-width);
+      max-width: var(--pmuibtn-max-width);
+      height: var(--pmuibtn-height);
+      background-color: var(--pmuibtn-bg-color);
+      padding: var(--pmuibtn-padding);
+      border-radius: var(--pmui-dsc-borderRadius, inherit);
+      border-color: var( --pmuibtn-border-color);
+      border-width: var(--pmuibtn-border-width);
+      border-style: var(--pmuibtn-border-style);
+      overflow: hidden;
+  }
+
+
+  .pmuiButton_fixedStyle:global(.MuiButton-root){
+      position:relative;
+      display: flex;
+  }
+
+
+
+  /* ----------------------------------EVENTOS/ESTADOS-------------------------------*/
+
+  /* -----------------------------------hover/focus----------------------------------*/
+
+
+
+  .pmuiButton:global(.MuiButton-root):hover,  .pmuiButton:global(.MuiButton-root):focus {
+    --pmuibtn-bg-c-hov: var(--pmui-color-primary-bghover);
+    background-color: var(--pmuibtn-bg-c-hov);
+    --pmuibtn-c-hov: var(--pmui-color-primary-bchover);
+    color: var(--pmuibtn-c-hov);
+    border-radius:  var(--pmui-dsc-borderRadius, inherit);
+    borderColor: var(--pmuibtn-border-color);
+    borderStyle: var(--pmuibtn-border-style);
+    overflow: hidden;
+    transition: transform 0.08s ease;
+  }
+
+  /* --------------------------------------active------------------------------------*/
+
+  .pmuiButton:active {
+    transform: scale(0.96);
+  }
+
+  /* ------------------------------------disabled------------------------------------*/
+
+  .pmuiButton:global(.Mui-disabled),
+  .pmuiButton[disabled],
+  .pmuiButton[data-state="disabled"] {
+      background-color: var(--pmui-color-primary-bgdisabled);
+      color: var(--pmui-color-text-disabled);
+      border-radius:  var(--pmui-dsc-borderRadius, inherit);
+      background-image:none;
+      opacity:0.4;
+      overflow: hidden;
+  }

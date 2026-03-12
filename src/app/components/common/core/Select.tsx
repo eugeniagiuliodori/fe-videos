@@ -28,7 +28,9 @@ export type SelectProps <T = unknown> = SelectOwnProps<T> & Omit<SelectType<T>, 
     (props: SelectProps<T> & {ref?: React.Ref<HTMLDivElement>}) => 
       {
 
-  const { className, sx, ref, options, icons, label, onChange, value,  menuSx, menuItemSx, ...rest } = props;
+  const { className, sx, ref, options, icons, label, onChange, value,  menuSx, menuItemSx,
+          onMouseEnter, onMouseLeave, onMouseDown, onMouseUp, onFocus, onBlur,
+          ...rest } = props;
   const id = label ? `${label}-label` : undefined;
   const mergedSx = mergeSx(sx);
   const composedClassName = clsx(className);
@@ -63,9 +65,21 @@ export type SelectProps <T = unknown> = SelectOwnProps<T> & Omit<SelectType<T>, 
       labelId={id}
       label={label}
       value={value}
-      
       onChange={onChange}
-     
+      /*-- PARA EL REFACTOR CON DEFINICIONES DE STATES Y GLOBAL STATES.
+      PARA CADA EVENTO EN ÚLTIMO ORDEN, INVOCAR SU CORRESPONDIENTE PROPAGADO 
+      DESDE PROPS
+      --*/
+      /* hover */
+      onMouseEnter={()=>{}}
+      onMouseLeave={()=>{}}
+      /* focus */
+      onFocus={()=>{}}
+      onBlur={()=>{}}
+      /* active */
+      onMouseUp={()=>{}}
+      onMouseDown={()=>{}}
+      /*--                                                             --*/
       {...rest}
     >  
 

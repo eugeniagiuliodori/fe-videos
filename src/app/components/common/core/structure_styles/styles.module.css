@@ -1,19 +1,22 @@
 .innerLayoutButtonCustom {
   display: flex;
-  justify-content: var(--btn-justify-content, center);
-  align-items: var(--btn-align-items, center);
-  flex-direction: var(--btn-flex-direction, row);
+  --pmuibtn-align-item:var(--pmui-dsc-alignItem);
+  --pmuibtn-justify-content:var(--pmui-dsc-justifyContent);
+  --pmuibtn-flex-direction:var(--pmui-dsc-flexDirection);
+  justify-content: var(--pmuibtn-justify-content);
+  align-items: var(--pmuibtn-align-items);
+  flex-direction: var(--pmuibtn-flex-direction);
 }
 
           
 .innerLayoutButtonDefault {        
   display:flex;
-  --btn-justify-content: center;
-  --btn-align-item: center;
-  --btn-flex-direction: row;
-    justify-content: var(--btn-justify-content);
-  align-items: var(--btn-align-items);
-  flex-direction: var(--btn-flex-direction);
+  --pmuibtn-justify-content: center;
+  --pmuibtn-align-item: center;
+  --pmuibtn-flex-direction: row;
+    justify-content: var(--pmuibtn-justify-content);
+    align-items: var(--pmuibtn-align-items);
+    flex-direction: var(--pmuibtn-flex-direction);
 }
 
           
