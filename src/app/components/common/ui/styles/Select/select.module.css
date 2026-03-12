@@ -1,0 +1,36 @@
+
+
+  .pmuiSelect{
+      display: flex;
+      flex-direction: row;
+      --pmuiselect-align-item:var(--pmui-dsc-alignItem);
+      --pmuiselect-min-width:var(--pmui-select-minWidth);
+      --pmuiselect-border:var(--pmui-select-border);
+      --pmuiselect-border-radius: var(--pmui-select-borderRadius);
+      --pmuiselect-justify-content: var(--pmui-dsc-justifyContent);
+      align-items: var(--pmuiselect-align-item);
+      justify-content: var(--pmuiselect-justify-content);
+      border: var(--pmuiselect-border);
+      border-radius: var(--pmuiselect-border-radius);
+      min-width: var(--pmuiselect-width);
+      --pmuiselect-color:var(--pmui-color-white);
+      color:var(--pmuiselect-color);
+       transition: transform 0.08s ease;
+  }
+
+
+
+  /* ---------------------------------EVENTOS/ESTADOS--------------------------------*/
+
+  /* -----------------------------------hover/focus----------------------------------*/
+
+  .pmuiSelect:hover, .pmuiSelect:global(.Mui-focused){
+    --pmuiselect-border:var(--pmui-color-primary-bchover);
+    border: 2px solid var(--pmuiselect-border);
+    --pmuiselect-hover:var(--pmui-color-primary-bghover);
+    background-color:var(--pmuiselect-hover);
+  }
+
+
+  /* --------------------------------------disabled-------------------------------------*/
+

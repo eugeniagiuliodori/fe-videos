@@ -1,20 +1,27 @@
-import { forwardRef } from "react";
 import BaseMenuItem from "@/components/common/core/MenuItem";
 import { MenuItemProps } from "@/components/common/core/MenuItem";
+import { mergeSx } from "@/components/utils/utils";
+import clsx from 'clsx';
 
 
-    const MenuItem=forwardRef<HTMLLIElement, MenuItemProps> ((props, ref) => {
-    const { className, children,  ...rest } = props;    
-    return(
-         <BaseMenuItem  
-            ref={ref}
-            className={className}
-            {...rest}
-         >
-            {children}
-        </BaseMenuItem>
-    );
+    const MenuItem = <T,>(
+  props: MenuItemProps<T> & { ref?: React.Ref<HTMLLIElement> }
+) => {
+  const { className, sx, ref, children, ...rest } = props;
+
+  const mergedSx = mergeSx(sx);
+  const composedClassName = clsx(className);
+
+  return (
+    <BaseMenuItem
+      ref={ref}
+      className={composedClassName}
+      sx={mergedSx}
+      {...rest}
+    >
+      {children}
+    </BaseMenuItem>
+  );
 }
-);
 
 export default MenuItem;

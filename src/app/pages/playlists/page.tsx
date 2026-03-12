@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import styles from "./PagePlaylists.module.css";
+import styles from "./playlists.module.css";
 
 export default function PagePlaylists() {
   return (

@@ -3,27 +3,59 @@
 @tailwind utilities;
 
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.MuiOutlinedInput-root,
+.MuiFilledInput-root,
+.MuiInput-root{
+  position: relative;
+  overflow: hidden;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.MuiSlider-root {
+  position: relative;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.MuiPopover-root{
+  background-image:none;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.mui-i0wprr-MuiModal-root-MuiPopover-root-MuiMenu-root{
+   background-image:none;
 }
+
+
+/*
+
+
+
+.MuiOutlinedInput-root:after,
+.MuiFilledInput-root:after,
+.MuiInput-root:after
+{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: rgba(0,0,0,0);
+  transition: background-color 180ms ease;
+  pointer-events: none;
+
+}
+
+
+.MuiOutlinedInput-root:hover::after {
+  --pmuioutlinedInput-bg-c-hov-aft: rgba(0,0,0,0.05);
+  background-color: var(--pmuioutlinedInput-bg-c-hov-aft);
+}
+
+.MuiFilledInput-root:hover::after {
+  --pmuifilledInput-bg-c-hov-aft: rgba(0,0,0,0.07);
+  background-color: var(--pmuifilledInput-bg-c-hov-aft);
+}
+
+.MuiInput-root:hover::after {
+  --pmuiinput-bg-c-hov-aft: rgba(0,0,0,0.03);
+  background-color: var(--pmuiinput-bg-c-hov-aft);
+}
+
+
+*/

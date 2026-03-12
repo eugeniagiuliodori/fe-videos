@@ -1,22 +1,28 @@
-import { forwardRef } from "react";
 import BaseDialogActions from "@/components/common/core/DialogActions";
 import { DialogActionsProps } from "@/components/common/core/DialogActions";
+import { mergeSx } from "@/components/utils/utils";
+import styles from './styles/DialogActions/mui.module.css';
+import clsx from 'clsx';
 
-
-export const dialogActionsCentered = {
-  justifyContent: 'center',
-};
  
-const DialogActions=forwardRef<HTMLDivElement, DialogActionsProps> ((props, ref) => {
-    const { className,   ...rest } = props;
+const DialogActions = 
+(props: DialogActionsProps & {ref?: React.Ref<HTMLDivElement>}) => {
+
+    const { className, ref, sx, directionFlex, mainAxis, crossAxis,  ...rest } = props;
+
+    const mergedSx = mergeSx(sx);
+    const composedClassName = clsx(className, styles.dialogActions_fixedStyle);
 
     return(
         <BaseDialogActions 
             ref={ref}
-            className={className}
-            sx={dialogActionsCentered}
+            className={composedClassName}
+            directionFlex={directionFlex}
+            mainAxis={mainAxis}
+            crossAxis={crossAxis}
+            sx={mergedSx}
             {...rest}
         />)
 }
-);
+
 export default DialogActions;

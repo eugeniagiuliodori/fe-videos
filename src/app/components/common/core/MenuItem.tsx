@@ -1,30 +1,56 @@
-import { forwardRef } from "react";
 import {MenuItem as MUIMenuItem} from "@mui/material";
+import ListItemIcon from '@mui/material/ListItemIcon';
 import { MenuItemProps as MenuItemType } from "@mui/material";
+import { mergeSx } from "@/components/utils/utils";
+import clsx from 'clsx';
 
 
+    export type MenuItemProps<T = unknown> = 
+        Omit<MenuItemType, 'ref' | 'classes' | 'dense' | 'value' | 'component' | 
+                            'focusVisibleClassName'> 
+        & {
+            value: T;
+            icon?: React.ReactNode;
+        } ;
 
-    export type MenuItemProps<T = unknown> = Omit<MenuItemType, 'classes' | 'dense' | 'value'> & {value: T} ;
-
-
-    type MenuItemComponent = <T = unknown>(
-      props: MenuItemProps<T> & React.RefAttributes<HTMLElement>
-    ) => React.ReactElement;
-
-    const MenuItem=forwardRef (function <T = unknown>(props:MenuItemProps<T>, ref:React.ForwardedRef<any>) {
-    const { value, className, children, focusVisibleClassName,  ...rest } = props;    
+    const MenuItem = <T,>(
+    props: MenuItemProps<T> & { ref?: React.Ref<HTMLLIElement> }
+    ) => {
+    const { value, className, ref, children, icon, sx,  
+            onMouseEnter, onMouseLeave, onMouseDown, onMouseUp, onFocus, onBlur,
+            ...rest } = props; 
+    const mergedSx = mergeSx(sx); 
+    const composedClassName = clsx(className);
+    
     return(
          <MUIMenuItem  
-            ref={ref as React.Ref<any>}
+            ref={ref}
+            component="li"
             value={String(value)} 
-            className={className}
-            focusVisibleClassName={focusVisibleClassName}
+            className={composedClassName}
+            sx={mergedSx}
+            /*-- PARA EL REFACTOR CON DEFINICIONES DE STATES Y GLOBAL STATES.
+            PARA CADA EVENTO EN ÚLTIMO ORDEN, INVOCAR SU CORRESPONDIENTE PROPAGADO 
+            DESDE PROPS
+            --*/
+            /* hover */
+            onMouseEnter={()=>{}}
+            onMouseLeave={()=>{}}
+            /* focus */
+            onFocus={()=>{}}
+            onBlur={()=>{}}
+            /* active */
+            onMouseUp={()=>{}}
+            onMouseDown={()=>{}}
+            /*--                                                             --*/
             {...rest}
         >
-            {children ?? String(value)}x
+ 
+            {icon && <ListItemIcon >{icon}</ListItemIcon>}
+            {children}
         </MUIMenuItem>
     );
 }
-)  as MenuItemComponent;
+
 
 export default MenuItem;

@@ -1,0 +1,17 @@
+
+.pmuifullscreenButton .pmuifullscreenIcon {
+ 
+  width: var(--pmuibtn-width) !important; 
+  height: var(--pmuibtn-height) !important; 
+  
+}
+
+.pmuiplayIcon {
+  --pmuisvg-icon-width: 1.25rem; 
+  --pmuisvg-icon-height: 1.25rem; 
+}
+
+.pmuimuteIcon{
+  --pmuisvg-icon-width: 1.25rem; 
+  --pmuisvg-icon-height: 1.25rem; 
+}

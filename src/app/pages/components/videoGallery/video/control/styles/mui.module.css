@@ -1,0 +1,52 @@
+:global(.MuiRadio-root).RadioInput .MuiSvgIcon-root {
+  font-size: 0.8rem;
+}
+
+:global(.MuiRadio-root).RadioInput .RadioIconBox {
+  border-radius: 50%;
+  color:#ffffff;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+
+}
+
+:global(.MuiSvgIcon-root).checkedIcon {
+  color: var(--radio-checked-color);
+  width: auto ;
+  height: 2.5vh;
+
+}
+
+:global(.MuiSvgIcon-root).uncheckedIcon {
+  color: white;    
+  width: auto;
+  height: 2.5vh;
+}
+
+
+:global(.MuiSvgIcon-root).RadioInput{
+  font-size: 0.8rem;
+}
+
+:global(.MuiBox-root).BoxIconRadio{
+  border-radius: 50%;
+  background-color:#ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+:global(.MuiFormControlLabel-root).FormLabelTheme{
+  width: 50%;
+  margin: 0;
+}
+
+
+.FormLabelTheme :global(.MuiFormControlLabel-label){
+  font-size: 0.7rem;
+  line-height: 1.2;
+}

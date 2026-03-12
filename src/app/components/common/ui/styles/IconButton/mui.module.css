@@ -1,0 +1,58 @@
+  .pmuiIconButton:global(.MuiIconButton-root) {
+      --pmuiiconbtn-color:var(--pmui-color-white);
+      --pmuibtn-width:var(--pmui-dsc-width);
+      --pmuibtn-min-width:var(--pmui-dsc-minWidth);
+      --pmuibtn-max-width:var(--pmui-dsc-maxWidth);
+      --pmuibtn-height:var(--pmui-dsc-height);
+      --pmuibtn-min-height:var(--pmui-dsc-minHeight);
+      --pmuibtn-max-height:var(--pmui-dsc-maxHeight);
+      --pmuibtn-bg-color: var(--pmui-palette-primary-main);
+      --pmuibtn-padding:var(--pmui-dsc-padding);
+      --pmuibtn-border-radius:var(--pmui-dsc-borderRadius);
+      color: var(--pmuiiconbtn-color);
+      width: var(--pmuibtn-width);
+      min-width: var(--pmuibtn-min-width);
+      max-width: var(--pmuibtn-max-width);
+      height: var(--pmuibtn-height);
+      background-color: var(--pmuibtn-bg-color);
+      padding: var(--pmuibtn-padding);
+      border-radius: var(--pmuibtn-border-radius);
+  }
+
+
+  /* ----------------------------------EVENTOS/ESTADOS----------------------------------*/
+
+  /* ---------------------------------------hover---------------------------------------*/
+.pmuiIconButton:global(.MuiIconButton-root):hover svg {
+  
+      --pmuibtn-c-hov: var(--pmui-color-primary-bchover);
+    color: var(--pmuibtn-c-hov);
+    --pmuisvg-bg-hov:var(--pmui-color-primary-bghover);
+    background-color:var(--pmuisvg-bg-hov);
+    border-radius:50%;
+    opacity:1;
+  }
+
+  /* ----------------------------------------focus--------------------------------------*/
+
+     .pmuiIconButton:global(.MuiIconButton-root):focus svg{
+      --pmuibtn-c-hov: var(--pmui-color-primary-bchover);
+    color: var(--pmuibtn-c-hov);
+    --pmuisvg-bg-hov:var(--pmui-color-primary-bghover);
+    background-color:var(--pmuisvg-bg-hov);
+    border-radius:50%;
+    opacity:1;
+  }
+
+  /* ---------------------------------------active--------------------------------------*/
+
+  /* ---------------------------------------active--------------------------------------*/
+
+  /* --------------------------------------disabled-------------------------------------*/
+
+.pmuiIconButton:global(.MuiIconButton-root):global(.Mui-disabled),
+.pmuiButton[disabled],
+.pmuiButton[data-state="disabled"] {
+  --pmuisvg-color: var(--pmui-color-primary-bgdisabled);
+  opacity:0.55;
+}

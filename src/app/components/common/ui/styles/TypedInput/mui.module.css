@@ -1,0 +1,68 @@
+
+
+.InputStyle:global(.MuiSlider-root),   .InputStyle:global(.MuiInput-root) {
+    --pmuitypedinput-color:var(--pmui-color-white);
+    color: var(--pmuitypedinput-color);
+}
+
+
+  /* ---------------------------------------hover---------------------------------------*/
+
+  :global(.MuiButtonBase-root).InputStyle:global(.MuiRadio-root):hover{
+    --pmuiradio-hover:var(--pmui-color-primary-bghover);
+    background-color:  var(--pmuiradio-hover);
+    opacity:1;
+  }
+
+
+  .InputStyle:global(.MuiSlider-root):hover :global(.MuiSlider-rail){
+    --pmuitypedinput-hover:var(--pmui-color-primary-bghover);
+    background-color:  var(--pmuitypedinput-hover);
+    opacity:1;
+  }
+
+  .InputStyle:global(.MuiSlider-root):hover :global(.MuiSlider-thumb){
+      --pmuithumb-c-hov:var(--pmui-color-primary-bchover);
+      color:var(--pmuithumb-c-hov);
+  }
+
+  .InputStyle:global(.MuiSlider-root):hover :global(.MuiSlider-track){
+      --pmuitrack-c-hov:var(--pmui-color-primary-bchover);
+      color:var(--pmuitrack-c-hov);
+  }
+/* ------------------------------------disabled-----------------------------------*/
+.InputStyle:global(.MuiSlider-root):global(.Mui-disabled),
+.InputStyle[disabled],
+.InputStyle[data-state="disabled"] {
+  background: var(--pmui-color-primary-bgdisabled);
+  opacity:0.2;
+}
+
+.InputStyle:global(.MuiSlider-root):hover :global(.MuiSlider-thumb),
+.InputStyle[disabled] :global(.MuiSlider-thumb),
+.InputStyle[data-state="disabled"] :global(.MuiSlider-thumb){
+    --pmuitypedinput-hover:var(--pmui-color-primary-bghover);
+    color: var(--pmui-color-text-disabled);
+    opacity:0.4;
+  }
+  
+.InputStyle:global(.MuiSlider-root):hover :global(.MuiSlider-track),
+.InputStyle[disabled] :global(.MuiSlider-track),
+.InputStyle[data-state="disabled"] :global(.MuiSlider-track){
+    --pmuitypedinput-hover:var(--pmui-color-primary-bghover);
+    color: var(--pmui-color-text-disabled);
+    opacity:0.4;
+  }
+
+.InputStyle:global(.MuiSlider-root):hover :global(.MuiSlider-rail),
+.InputStyle[disabled] :global(.MuiSlider-rail),
+.InputStyle[data-state="disabled"] :global(.MuiSlider-rail){
+    --pmuitypedinput-hover:var(--pmui-color-primary-bghover);
+    color: var(--pmui-color-text-disabled);
+    opacity:0.4;
+  }
+
+
+
+
+ 

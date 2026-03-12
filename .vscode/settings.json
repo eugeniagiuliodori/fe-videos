@@ -1,0 +1,20 @@
+{
+  "css.lint.unknownAtRules": "ignore",
+
+  "files.associations": {
+    "global.css": "postcss"
+  },
+
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+
+  "editor.colorDecorators": true,
+
+  "tailwindCSS.experimental.classRegex": [
+    "className=\"([^\"]*)\"",
+    "className={`([^`]*)`}",
+    "clsx\\(([^)]*)\\)",
+    "cn\\(([^)]*)\\)"
+  ]
+}
